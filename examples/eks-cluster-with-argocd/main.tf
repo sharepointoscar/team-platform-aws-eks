@@ -34,7 +34,7 @@ data "aws_eks_cluster_auth" "cluster" {
 }
 
 provider "aws" {
-  region = "us-west-1"
+  region = "us-west-2"
   alias  = "default"
 }
 
@@ -56,7 +56,7 @@ provider "helm" {
 }
 
 locals {
-  tenant      = "aws001"  # AWS account name or unique id for tenant
+  tenant      = "hashi"  # AWS account name or unique id for tenant
   environment = "preprod" # Environment area eg., preprod or prod
   zone        = "dev"     # Environment with in one sub_tenant or business unit
 
@@ -76,6 +76,7 @@ locals {
     path               = "chart"
     repo_url           = "https://github.com/aws-samples/ssp-eks-add-ons.git"
     add_on_application = true
+    ssh_key_secret_name = null
   }
 
   #---------------------------------------------------------------
@@ -84,8 +85,9 @@ locals {
 
   workload_application = {
     path               = "envs/dev"
-    repo_url           = "https://github.com/aws-samples/ssp-eks-workloads.git"
+    repo_url           = "https://github.com/sharepointoscar/ssp-eks-workloads.git"
     add_on_application = false
+    ssh_key_secret_name = null
   }
 }
 
@@ -126,6 +128,9 @@ module "aws_vpc" {
 
 module "aws-eks-accelerator-for-terraform" {
   source = "../.."
+
+  platform_teams    = local.platform_teams
+  application_teams = local.application_teams
 
   tenant            = local.tenant
   environment       = local.environment
@@ -179,13 +184,13 @@ module "kubernetes-addons" {
   enable_cert_manager                 = true
   enable_cluster_autoscaler           = true
   enable_ingress_nginx                = true
-  enable_karpenter                    = true
-  enable_keda                         = true
-  enable_metrics_server               = true
-  enable_prometheus                   = true
-  enable_traefik                      = true
-  enable_vpa                          = true
-  enable_yunikorn                     = true
+  enable_karpenter                    = false
+  enable_keda                         = false
+  enable_metrics_server               = false
+  enable_prometheus                   = false
+  enable_traefik                      = false
+  enable_vpa                          = false
+  enable_yunikorn                     = false
   enable_argo_rollouts                = true
 
   depends_on = [module.aws-eks-accelerator-for-terraform.managed_node_groups]
