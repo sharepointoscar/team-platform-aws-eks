@@ -16,9 +16,18 @@ terraform {
     }
   }
 
-  backend "local" {
-    path = "local_tf_state/terraform-main.tfstate"
+  // This is the backend for Terraform Cloud
+  // an account is required.
+  backend "remote" {
+    organization = "sharepointoscar"
+
+    workspaces {
+      name = "team-platform-aws-eks"
+    }
   }
+  // backend "local" {
+  //   path = "local_tf_state/terraform-main.tfstate"
+  // }
 }
 
 data "aws_region" "current" {}
