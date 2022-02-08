@@ -7,9 +7,9 @@
     }
   }
   application_teams = {
-    devopsoscar = {
+    hashi-developers = {
       labels = {
-        name = "devopsoscar",
+        name = "hashi-developers",
       }
       quota = {
         "requests.cpu"    = "2000m",
