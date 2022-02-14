@@ -161,7 +161,7 @@ module "aws-eks-accelerator-for-terraform" {
       subnet_ids      = module.aws_vpc.private_subnets
 
       desired_size = "5"
-      max_size     = "10"
+      max_size     = "5"
       min_size     = "3"
     }
   }
