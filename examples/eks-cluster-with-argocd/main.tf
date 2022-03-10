@@ -197,7 +197,7 @@ module "kubernetes-addons" {
   enable_metrics_server               = false
   enable_prometheus                   = false
   enable_traefik                      = false
-  enable_vpa                          = false
+  enable_vpa                          = true
   enable_yunikorn                     = false
   enable_argo_rollouts                = true
 
