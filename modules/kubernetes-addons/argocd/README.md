@@ -59,7 +59,7 @@ No modules.
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_add_on_config"></a> [add\_on\_config](#input\_add\_on\_config) | Configuration for managing add-ons via ArgoCD | `any` | `{}` | no |
-| <a name="input_admin_password_secret_name"></a> [admin\_password\_secret\_name](#input\_admin\_password\_secret\_name) | Name for a secret stored in AWS Secrets Manager that contains the admin password for ArgoCD. | `string` | `""` | no |
+| <a name="input_admin_password_secret_name"></a> [admin\_password\_secret\_name](#input\_admin\_password\_secret\_name) | Name for a secret stored in AWS Secrets Manager that contains the admin password for ArgoCD. | `string` | `"argo-admin-secret"` | no |
 | <a name="input_applications"></a> [applications](#input\_applications) | ArgoCD Application config used to bootstrap a cluster. | `any` | `{}` | no |
 | <a name="input_eks_cluster_id"></a> [eks\_cluster\_id](#input\_eks\_cluster\_id) | Name for the EKS Cluster | `string` | n/a | yes |
 | <a name="input_helm_config"></a> [helm\_config](#input\_helm\_config) | ArgoCD Helm Chart Config values | `any` | `{}` | no |
