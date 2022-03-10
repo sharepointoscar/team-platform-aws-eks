@@ -191,13 +191,13 @@ module "kubernetes-addons" {
   enable_aws_load_balancer_controller = true
   enable_cert_manager                 = true
   enable_cluster_autoscaler           = true
-  enable_ingress_nginx                = false
+  enable_ingress_nginx                = true
   enable_karpenter                    = false
   enable_keda                         = false
-  enable_metrics_server               = true
+  enable_metrics_server               = false
   enable_prometheus                   = false
   enable_traefik                      = false
-  enable_vpa                          = true
+  enable_vpa                          = false
   enable_yunikorn                     = false
   enable_argo_rollouts                = true
 
