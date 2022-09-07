@@ -82,7 +82,7 @@ locals {
 
   addon_application = {
     path               = "chart"
-    repo_url           = "https://github.com/sharepointoscar/ssp-eks-add-ons.git"
+    repo_url           = "https://github.com/aws-samples/eks-blueprints-add-ons.git"
     add_on_application = true
     ssh_key_secret_name = null
   }
@@ -93,7 +93,7 @@ locals {
 
   workload_application = {
     path               = "envs/dev"
-    repo_url           = "https://github.com/sharepointoscar/ssp-eks-workloads.git"
+    repo_url           = "https://github.com/aws-samples/eks-blueprints-workloads.git"
     add_on_application = false
     ssh_key_secret_name = null
   }
